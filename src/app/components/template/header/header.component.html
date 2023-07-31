@@ -1,15 +1,29 @@
-<mat-toolbar class="header mat-elevation-z4">
-  <span>
-    <a routerLink="/">
-      <img id="logo" src="" alt="logo">
+<nav class="navbar bg-body-tertiary" data-bs-theme="dark">
+  <div class="container-fluid flex-nowrap">
+    <a class="navbar-brand" routerLink="/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+      </svg>
     </a>
-  </span>
-  <span class="title-group">
-    <a>
-      <i class="material-icons">
-        home
-      </i>
-      Início
-    </a>
-  </span>
-</mat-toolbar>
+    <form class="d-flex w-75 pe-2" role="search">
+      <input class="form-control me-2" type="search" placeholder="Pesquisar.." aria-label="Search">
+      <button class="btn btn-outline-light" type="submit">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+      </button>
+    </form>
+    <div class="flex-shrink-0 dropdown">
+      <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">
+        <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+      </a>
+      <ul class="dropdown-menu text-small shadow" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0.5px, 34px, 0px);" data-popper-placement="bottom-end">
+        <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Conversas</font></font></a></li>
+        <li><a class="dropdown-item" href="#" routerLink="/products"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Pedidos</font></font></a></li>
+        <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Perfil</font></font></a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sair</font></font></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

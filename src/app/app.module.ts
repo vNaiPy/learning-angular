@@ -23,6 +23,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ProductReadComponent } from './components/product/product-read/product-read.component';
 import { GraphQLModule } from './graphql.module';
+import { MapComponent } from './views/map/map.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { GraphQLModule } from './graphql.module';
     HomeComponent,
     ProductComponent,
     ProductCreateComponent,
-    ProductReadComponent
+    ProductReadComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
