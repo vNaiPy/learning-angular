@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  searchFor: string = ""
+
+  searchProducts() {
+    console.log(this.searchFor)
+  }
 }
