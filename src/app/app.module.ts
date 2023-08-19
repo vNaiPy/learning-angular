@@ -24,6 +24,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ProductReadComponent } from './components/product/product-read/product-read.component';
 import { GraphQLModule } from './graphql.module';
 import { MapComponent } from './views/map/map.component';
+import { LoginComponent } from './components/login/login/login.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MapComponent } from './views/map/map.component';
     ProductComponent,
     ProductCreateComponent,
     ProductReadComponent,
-    MapComponent
+    MapComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
