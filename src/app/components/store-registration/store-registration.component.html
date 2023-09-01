@@ -1,0 +1,95 @@
+<form class="needs-validation mt-3" novalidate="">
+  <div class="row g-3">
+    <div class="col-12">
+      <label for="storeName" class="form-label">Nome da loja:</label>
+      <input type="text" class="form-control" id="storeName" placeholder="" value="" required="">
+      <div class="invalid-feedback">
+        Informe o nome da sua loja.
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <label for="logoUrl" class="form-label">Logo:</label>
+      <input type="file" class="form-control" id="logoUrl" placeholder="" value="" required="">
+      <div class="invalid-feedback">
+        Precisa informar a url do logo.
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <label for="bannerUrl" class="form-label">Banner:</label>
+      <input type="file" class="form-control" id="bannerUrl" placeholder="" value="" required="">
+      <div class="invalid-feedback">
+        Precisa informar a url do banner.
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <label for="address" class="form-label">Rua:</label>
+      <input type="text" class="form-control" id="rua" placeholder="Rua Jardim Costa" required="true">
+      <div class="invalid-feedback">
+        Informe sua rua.
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <label for="complemento" class="form-label">Complemento:</label>
+      <input type="text" class="form-control" id="complemento" placeholder="Apartmento 52 Torre 4" required="true">
+      <div class="invalid-feedback">
+        Informe um complemeto.
+      </div>
+    </div>
+
+    <div class="col-12">
+      <label for="bairro" class="form-label">Bairro:</label>
+      <input type="text" class="form-control" id="bairro" placeholder="Galileu" required="true">
+      <div class="invalid-feedback">
+        Informe seu bairro.
+      </div>
+    </div>
+
+    <div class="col-md-5">
+      <label for="cidade" class="form-label">Cidade</label>
+      <select class="form-select" id="cidade" required="">
+        <option value="">Escolha...</option>
+        <option>São Bernardo do Campo</option>
+      </select>
+      <div class="invalid-feedback">
+        Please provide a valid cidade.
+      </div>
+    </div>
+
+    <div class="col-md-5">
+      <label for="state" class="form-label">Estado</label>
+      <select class="form-select" id="state" required="">
+        <option value="">Escolha...</option>
+        <option>São Paulo</option>
+      </select>
+      <div class="invalid-feedback">
+        Please provide a valid state.
+      </div>
+    </div>
+
+    <div class="col-md-5">
+      <label for="country" class="form-label">País</label>
+      <select class="form-select" id="country" required="">
+        <option value="">Escolha...</option>
+        <option>Brasil</option>
+      </select>
+      <div class="invalid-feedback">
+        Please select a valid country.
+      </div>
+    </div>
+  </div>
+
+  <div class="card text-bg-dark col-sm-12 mt-3">
+    <div class="card-header">Selecione seu endereço para pegar sua coordenada:</div>
+    <div class="card-body">
+      <p class="card-text"><app-map (coords)="receberCoords($event)"></app-map></p>
+    </div>
+  </div>
+
+  <hr class="my-4">
+
+  <button class="w-100 btn btn-light btn-lg" (click)="registerStore()" type="submit">Criar a loja</button>
+</form>

@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     username: "",
     password: ""
   }
-
+  logged = false
   baseUrl = "http://localhost:8080/auth/authenticate"
 
   constructor (private snackBar: MatSnackBar, private http: HttpClient, private router: Router) {}
@@ -49,6 +49,10 @@ export class LoginComponent implements OnInit {
     horizontalPosition: "right",
     verticalPosition: "top"
   })
+ }
+
+ isLogged () {
+  if(localStorage.getItem('user_token') != null) this.logged = true
  }
 
 }

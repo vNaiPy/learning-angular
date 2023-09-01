@@ -25,6 +25,7 @@ import { ProductReadComponent } from './components/product/product-read/product-
 import { GraphQLModule } from './graphql.module';
 import { MapComponent } from './views/map/map.component';
 import { LoginComponent } from './components/login/login/login.component';
+import { StoreRegistrationComponent } from './components/store-registration/store-registration.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { LoginComponent } from './components/login/login/login.component';
     ProductCreateComponent,
     ProductReadComponent,
     MapComponent,
-    LoginComponent
+    LoginComponent,
+    StoreRegistrationComponent
   ],
   imports: [
     BrowserModule,

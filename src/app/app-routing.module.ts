@@ -6,6 +6,7 @@ import { ProductComponent } from './views/product/product.component';
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
 import { MapComponent } from './views/map/map.component';
 import { LoginComponent } from './components/login/login/login.component';
+import { StoreRegistrationComponent } from './components/store-registration/store-registration.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: "login",
     component: LoginComponent
+  },
+  {
+    path: "store-registration",
+    component: StoreRegistrationComponent
   }
 ];
 

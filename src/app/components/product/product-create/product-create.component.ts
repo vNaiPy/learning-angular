@@ -2,6 +2,8 @@ import { Router } from '@angular/router';
 import { ProductService } from './../product.service';
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
+import { STORE_REGISTRATION } from 'src/app/graphql.queries';
+import { Apollo } from 'apollo-angular';
 
 @Component({
   selector: 'app-product-create',
@@ -10,7 +12,7 @@ import { Product } from '../product.model';
 })
 export class ProductCreateComponent implements OnInit {
 
-  constructor (private productService: ProductService, private router: Router) {}
+  constructor (private productService: ProductService, private apollo: Apollo, private router: Router) {}
 
   product: Product = {
     name: "",
@@ -19,14 +21,27 @@ export class ProductCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 
-  createProduct () {
-    this.productService.create(this.product).subscribe(() => {
-      this.productService.showMessage("Success!")
-      this.router.navigate(['/products'])
-    })
+  registerStore () {
+      this.apollo.mutate({
+        mutation: STORE_REGISTRATION,
+        variables: {
+          name: "carlinhosdupneu",
+          logoUrl: "carlinhosdupneu",
+          bannerUrl: "banner-url",
+          street: "rua gasparini",
+          complement: "bruxa do 91",
+          neighborhood: "Ramos",
+          city: "SBC",
+          state: "SP",
+          country: "Brazil",
+          longitude: -46.57452241491228,
+          latitude: -23.651042029689094
+        }
+      }).subscribe(({ data, error }: any) => {
+        console.log(data)
+      })
   }
 
   cancel () {

@@ -13,17 +13,89 @@
         </svg>
       </button>
     </form>
-    <div class="flex-shrink-0 dropdown">
+
+    <div *ngIf="logged; else loggedOut" class="flex-shrink-0 dropdown">
       <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">
         <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
       </a>
       <ul class="dropdown-menu text-small shadow" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0.5px, 34px, 0px);" data-popper-placement="bottom-end">
         <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Conversas</font></font></a></li>
-        <li><a class="dropdown-item" href="#" routerLink="/products"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Pedidos</font></font></a></li>
+        <li><a class="dropdown-item disabled" href="#" routerLink="/products"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Pedidos</font></font></a></li>
         <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Perfil</font></font></a></li>
         <li><hr class="dropdown-divider"></li>
+        <li *ngIf="false; else naoTem"><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Minha loja</font></font></a></li>
+        <ng-template #naoTem><li><a  routerLink="/store-registration" class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cadastrar loja</font></font></a></li></ng-template>
         <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sair</font></font></a></li>
       </ul>
+    </div>
+  </div>
+
+  <ng-template #loggedOut>
+    <button class="btn btn-light text-nowrap" data-bs-toggle="modal" data-bs-target="#loginModal">
+      Logar
+    </button>
+  </ng-template>
+
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-header p-5 pb-4 border-bottom-0">
+          <h1 class="fw-bold mb-0 fs-2">Entrar:</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-5 pt-0">
+          <form class="">
+            <div class="form-floating mb-3">
+              <input type="email" [(ngModel)]="authLogin.username" name="username" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com">
+              <label for="floatingInput">Email</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" [(ngModel)]="authLogin.password" name="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
+              <label for="floatingPassword">Senha</label>
+            </div>
+            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-light" (click)="authenticate()" type="submit">Logar</button>
+            <small class="text-body-secondary">Cadastrando-se no site, você concorda com os termos de uso.</small>
+            <hr class="my-4">
+            <h2 class="fs-5 fw-bold mb-3">Você ainda não tem uma conta?!</h2>
+            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-light" data-bs-target="#cadastroModal" data-bs-toggle="modal">Cadastre-se</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="cadastroModal" tabindex="-1" aria-labelledby="cadastroModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-header p-5 pb-4 border-bottom-0">
+          <h1 class="fw-bold mb-0 fs-2">Cadastrar:</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-5 pt-0">
+          <form class="">
+            <div class="form-floating mb-3">
+              <input type="text" [(ngModel)]="authCadastro.name" name="name" class="form-control rounded-3" id="floatingInput" placeholder="Digite seu nome">
+              <label for="floatingInput">Nome</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" [(ngModel)]="authCadastro.email" name="email" class="form-control rounded-3" id="floatingInput" placeholder="seu-email@exemplo.com">
+              <label for="floatingInput">Email</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" [(ngModel)]="authCadastro.password" name="password" name="password" class="form-control rounded-3" id="floatingInput" placeholder="Digite sua senha">
+              <label for="floatingInput">Senha</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text"  [(ngModel)]="authCadastro.phone" name="phone" class="form-control rounded-3" id="floatingPassword" placeholder="Digite seu número">
+              <label for="floatingPassword">Celular</label>
+            </div>
+            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-light" (click)="cadastro()" type="submit">Cadastrar</button>
+            <small class="text-body-secondary">Cadastrando-se no site, você concorda com os termos de uso.</small>
+            <hr class="my-4">
+            <h2 class="fs-5 fw-bold mb-3">Você já tem uma conta?</h2>
+            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-light" data-bs-target="#loginModal" data-bs-toggle="modal">Faça o login</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 
